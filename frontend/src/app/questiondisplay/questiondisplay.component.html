@@ -1,0 +1,37 @@
+<div class="questionBox">
+    <button mat-raised-button (click)="getQuestion()">Get Question</button>
+</div>
+
+
+<div class="answerBox" *ngIf="question">
+    <p>{{question.question}}</p>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <button mat-raised-button (click)="validateAnswer(question.answers[0])">{{question.answers[0]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button (click)="validateAnswer(question.answers[1])">{{question.answers[1]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button (click)="validateAnswer(question.answers[2])">{{question.answers[2]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button (click)="validateAnswer(question.answers[3])">{{question.answers[3]}}</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div class="resultBox" *ngIf="result">
+<p>{{result}}</p>
+
+    <ng-component *ngIf="result == 'Correct Answer!'">
+        <mat-icon>check_circle_outline</mat-icon>
+        <p>CORRECT ANSWER!</p>
+    </ng-component>
+
+    <ng-component *ngIf="result == 'False Answer!'">
+        <mat-icon>error_outline</mat-icon>
+        <p>FALSE ANSWER!</p>
+    </ng-component>
+        
+</div>
